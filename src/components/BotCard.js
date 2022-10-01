@@ -9,13 +9,14 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot }) {
+function BotCard({ bot, clickEvent, deleteBot }) {
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        onClick={() => clickEvent(bot)}
+
       >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
