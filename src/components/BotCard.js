@@ -16,7 +16,6 @@ function BotCard({ bot, clickEvent, deleteBot }) {
         className="ui card"
         key={bot.id}
         onClick={() => clickEvent(bot)}
-
       >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
@@ -48,8 +47,10 @@ function BotCard({ bot, clickEvent, deleteBot }) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
+                onClick={(event) => {
+                  event.stopPropagation();
+                  deleteBot(bot);
+                }
                 }
               >
                 x
